@@ -24,7 +24,7 @@ select * from vehicles v where status='available'
 -- Query 4: GROUP BY and HAVING
 select
   v.vehicle_id,
-  v.name AS vehicle_name,
+  v.name as vehicle_name,
   count(b.booking_id) as total_bookings
 from
   vehicles v
@@ -33,4 +33,4 @@ group by
   v.vehicle_id,
   v.name
 having
-  COUNT(b.booking_id) > 2;
+  count(b.booking_id) > 2;
