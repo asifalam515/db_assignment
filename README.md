@@ -13,17 +13,51 @@ A comprehensive database design and SQL implementation for a Vehicle Rental Syst
 
 ### Query 1: JOIN
 
+```select
+  b.booking_id,
+  u.name as customer_name,
+  v.name as vehicle_name,
+  b.start_date,
+  b.end_date,
+  b.status
+from
+  bookings b
+  inner join users u on b.user_id = u.user_id
+  inner join vehicles v on b.vehicle_id = v.vehicle_id
+```
+
 we have joined(inner) bookings,users and vehicles table on condition the selected our desire column name and value
 
 ### Query 2:EXISTS
 
+````select * from vehicles v where not exists (SELECT *
+    from bookings b
+    where b.vehicle_id = v.vehicle_id)```
+
 sub query will find those vehicle that were booked ever.and main query will exlude those.so that it will find out vehicles that have never been booked.
 
 ### Query 3:WHERE
+```select *
+from vehicles
+where status = 'available'
+  and type = 'car'```
+
 
 it will run condition by where on status and type.then select everything
 
 ### Query 4:GROUP BY and HAVING
+
+```select
+  v.name as vehicle_name,
+  count(b.booking_id) as total_bookings
+from
+  vehicles v
+  join bookings b on v.vehicle_id = b.vehicle_id
+group by
+  v.vehicle_id,
+  v.name
+having
+  count(b.booking_id) > 2;```
 
 we will join vehicle and and booking .then group by vehicle id,vehicle name.count the booking number and mark as totalBooking.then apply codition by having keyword
 
@@ -85,3 +119,4 @@ Tracks all rental transactions:
 - Links users to their booked vehicles
 - Tracks booking lifecycle from creation to completion
 - Total cost calculated based on rental duration and daily rate
+````
