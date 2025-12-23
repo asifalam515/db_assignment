@@ -17,8 +17,16 @@ from
 select * from vehicles v where not exists (SELECT *
     from bookings b
     where b.vehicle_id = v.vehicle_id)
+
+
+
 -- Query 3: WHERE
-select * from vehicles v where status='available'
+select *
+from vehicles
+where status = 'available'
+  and type = 'car'
+
+
 
 -- Query 4: GROUP BY and HAVING
 select
