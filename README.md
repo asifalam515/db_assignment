@@ -13,7 +13,8 @@ A comprehensive database design and SQL implementation for a Vehicle Rental Syst
 
 ### Query 1: JOIN
 
-```select
+```
+select
   b.booking_id,
   u.name as customer_name,
   v.name as vehicle_name,
@@ -30,7 +31,8 @@ we have joined(inner) bookings,users and vehicles table on condition the selecte
 
 ### Query 2:EXISTS
 
-````select * from vehicles v where not exists (SELECT *
+````
+select * from vehicles v where not exists (SELECT *
     from bookings b
     where b.vehicle_id = v.vehicle_id)
 
@@ -39,7 +41,8 @@ we have joined(inner) bookings,users and vehicles table on condition the selecte
 sub query will find those vehicle that were booked ever.and main query will exlude those.so that it will find out vehicles that have never been booked.
 
 ### Query 3:WHERE
-```select *
+```
+select *
 from vehicles
 where status = 'available'
   and type = 'car'
@@ -51,7 +54,9 @@ it will run condition by where on status and type.then select everything
 
 ### Query 4:GROUP BY and HAVING
 
-```select
+```
+
+select
   v.name as vehicle_name,
   count(b.booking_id) as total_bookings
 from
