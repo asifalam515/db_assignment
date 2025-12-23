@@ -9,18 +9,22 @@ A comprehensive database design and SQL implementation for a Vehicle Rental Syst
 - Write complex SQL queries using JOIN, EXISTS, and WHERE clauses
 - Handle real-world vehicle rental business scenarios
 
-## 🏗️ Query Explanation
+## Query Explanation
 
-#Query 1: JOIN
+### Query 1: JOIN
+
 we have joined(inner) bookings,users and vehicles table on condition the selected our desire column name and value
 
-#Query 2:EXISTS
+### Query 2:EXISTS
+
 sub query will find those vehicle that were booked ever.and main query will exlude those.so that it will find out vehicles that have never been booked.
 
-#Query 3:WHERE
+### Query 3:WHERE
+
 it will run condition by where on status and type.then select everything
 
-#Query 4:GROUP BY and HAVING
+### Query 4:GROUP BY and HAVING
+
 we will join vehicle and and booking .then group by vehicle id,vehicle name.count the booking number and mark as totalBooking.then apply codition by having keyword
 
 ## 🏗️ Database Design
